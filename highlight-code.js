@@ -19,10 +19,6 @@ exports.default = function (language, code) {
   }, '', (0, _ramda.split)('\n', highlightedCode));
 };
 
-var _prismCore = require('prismjs/components/prism-core');
-
-var _prismCore2 = _interopRequireDefault(_prismCore);
-
 var _ramda = require('ramda');
 
 var _loadPrismLanguage = require('./load-prism-language');
@@ -31,10 +27,13 @@ var _loadPrismLanguage2 = _interopRequireDefault(_loadPrismLanguage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var Prism = require('prismjs');
+
+
 var reduceWithIndex = (0, _ramda.addIndex)(_ramda.reduce);
 
 var highlightSyntax = function highlightSyntax(language, code) {
-  if (!_prismCore2.default.languages[language]) {
+  if (!Prism.languages[language]) {
     try {
       (0, _loadPrismLanguage2.default)(language);
     } catch (e) {
@@ -42,7 +41,7 @@ var highlightSyntax = function highlightSyntax(language, code) {
     }
   }
 
-  return _prismCore2.default.highlight(code, _prismCore2.default.languages[language]);
+  return Prism.highlight(code, Prism.languages[language]);
 };
 
 var processLine = function processLine(line, spotlight) {

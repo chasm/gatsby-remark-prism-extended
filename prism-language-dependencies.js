@@ -1,10 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 // From "https://raw.githubusercontent.com/PrismJS/prism/v1.6.0/components.js"
-exports.default = {
+module.exports = {
   meta: {
     path: 'components/prism-{id}',
     noCSS: true,

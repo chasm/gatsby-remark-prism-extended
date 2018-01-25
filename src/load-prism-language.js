@@ -1,4 +1,4 @@
-import Prism from 'prismjs/components/prism-core'
+const Prism = require('prismjs')
 
 import languageDependencies from './prism-language-dependencies'
 

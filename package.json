@@ -1,7 +1,7 @@
 {
   "name": "gatsby-remark-prismjs",
   "description": "Extends gatsby-remark-prismjs to include line numbering and code block line links.",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "Charles F. Munat <chas@munat.com>",
   "dependencies": {
     "babel-runtime": "^6.26.0",
