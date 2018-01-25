@@ -1,4 +1,4 @@
-import Prism from 'prismjs'
+import Prism from 'prismjs/components/prism-core'
 import { addIndex, contains, reduce, split } from 'ramda'
 
 import loadPrismLanguage from './load-prism-language'
