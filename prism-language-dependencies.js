@@ -121,7 +121,7 @@ module.exports = {
     require: `ruby`,
     owner: `MakeNowJust`
   },
-  "css-extras": {
+  'css-extras': {
     title: `CSS Extras`,
     require: `css`,
     owner: `milesj`
@@ -365,7 +365,7 @@ module.exports = {
     require: `clike`,
     owner: `milesj`
   },
-  "php-extras": {
+  'php-extras': {
     title: `PHP Extras`,
     require: `php`,
     owner: `milesj`

@@ -2,7 +2,7 @@ const Prism = require(`prismjs`)
 
 const languageDependencies = require(`./prism-language-dependencies`)
 
-module.exports = function loadPrismLanguage(language) {
+module.exports = function loadPrismLanguage (language) {
   if (Prism.languages[language]) {
     // Don't load already loaded language
     return

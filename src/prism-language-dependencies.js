@@ -4,7 +4,7 @@ module.exports = {
     path: `components/prism-{id}`,
     noCSS: true,
     examplesPath: `examples/prism-{id}`,
-    addCheckAll: true,
+    addCheckAll: true
   },
   markup: {
     title: `Markup`,
@@ -12,529 +12,529 @@ module.exports = {
       html: `HTML`,
       xml: `XML`,
       svg: `SVG`,
-      mathml: `MathML`,
+      mathml: `MathML`
     },
-    option: `default`,
+    option: `default`
   },
   css: {
     title: `CSS`,
-    option: `default`,
+    option: `default`
   },
   clike: {
     title: `C-like`,
-    option: `default`,
+    option: `default`
   },
   javascript: {
     title: `JavaScript`,
     option: `default`,
-    require: `clike`,
+    require: `clike`
   },
   abap: {
     title: `ABAP`,
-    owner: `dellagustin`,
+    owner: `dellagustin`
   },
   actionscript: {
     title: `ActionScript`,
     require: `javascript`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   ada: {
     title: `Ada`,
-    owner: `Lucretia`,
+    owner: `Lucretia`
   },
   apacheconf: {
     title: `Apache Configuration`,
-    owner: `GuiTeK`,
+    owner: `GuiTeK`
   },
   apl: {
     title: `APL`,
-    owner: `ngn`,
+    owner: `ngn`
   },
   applescript: {
     title: `AppleScript`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   asciidoc: {
     title: `AsciiDoc`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   aspnet: {
     title: `ASP.NET (C#)`,
     require: `markup`,
-    owner: `nauzilus`,
+    owner: `nauzilus`
   },
   autoit: {
     title: `AutoIt`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   autohotkey: {
     title: `AutoHotkey`,
-    owner: `aviaryan`,
+    owner: `aviaryan`
   },
   bash: {
     title: `Bash`,
-    owner: `zeitgeist87`,
+    owner: `zeitgeist87`
   },
   basic: {
     title: `BASIC`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   batch: {
     title: `Batch`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   bison: {
     title: `Bison`,
     require: `c`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   brainfuck: {
     title: `Brainfuck`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   bro: {
     title: `Bro`,
-    owner: `wayward710`,
+    owner: `wayward710`
   },
   c: {
     title: `C`,
     require: `clike`,
-    owner: `zeitgeist87`,
+    owner: `zeitgeist87`
   },
   csharp: {
     title: `C#`,
     require: `clike`,
-    owner: `mvalipour`,
+    owner: `mvalipour`
   },
   cpp: {
     title: `C++`,
     require: `c`,
-    owner: `zeitgeist87`,
+    owner: `zeitgeist87`
   },
   coffeescript: {
     title: `CoffeeScript`,
     require: `javascript`,
-    owner: `R-osey`,
+    owner: `R-osey`
   },
   crystal: {
     title: `Crystal`,
     require: `ruby`,
-    owner: `MakeNowJust`,
+    owner: `MakeNowJust`
   },
-  "css-extras": {
+  'css-extras': {
     title: `CSS Extras`,
     require: `css`,
-    owner: `milesj`,
+    owner: `milesj`
   },
   d: {
     title: `D`,
     require: `clike`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   dart: {
     title: `Dart`,
     require: `clike`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   diff: {
     title: `Diff`,
-    owner: `uranusjr`,
+    owner: `uranusjr`
   },
   docker: {
     title: `Docker`,
-    owner: `JustinBeckwith`,
+    owner: `JustinBeckwith`
   },
   eiffel: {
     title: `Eiffel`,
-    owner: `Conaclos`,
+    owner: `Conaclos`
   },
   elixir: {
     title: `Elixir`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   erlang: {
     title: `Erlang`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   fsharp: {
     title: `F#`,
     require: `clike`,
-    owner: `simonreynolds7`,
+    owner: `simonreynolds7`
   },
   fortran: {
     title: `Fortran`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   gherkin: {
     title: `Gherkin`,
-    owner: `hason`,
+    owner: `hason`
   },
   git: {
     title: `Git`,
-    owner: `lgiraudel`,
+    owner: `lgiraudel`
   },
   glsl: {
     title: `GLSL`,
     require: `clike`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   go: {
     title: `Go`,
     require: `clike`,
-    owner: `arnehormann`,
+    owner: `arnehormann`
   },
   graphql: {
     title: `GraphQL`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   groovy: {
     title: `Groovy`,
     require: `clike`,
-    owner: `robfletcher`,
+    owner: `robfletcher`
   },
   haml: {
     title: `Haml`,
     require: `ruby`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   handlebars: {
     title: `Handlebars`,
     require: `markup`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   haskell: {
     title: `Haskell`,
-    owner: `bholst`,
+    owner: `bholst`
   },
   haxe: {
     title: `Haxe`,
     require: `clike`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   http: {
     title: `HTTP`,
-    owner: `danielgtaylor`,
+    owner: `danielgtaylor`
   },
   icon: {
     title: `Icon`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   inform7: {
     title: `Inform 7`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   ini: {
     title: `Ini`,
-    owner: `aviaryan`,
+    owner: `aviaryan`
   },
   j: {
     title: `J`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   jade: {
     title: `Jade`,
     require: `javascript`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   java: {
     title: `Java`,
     require: `clike`,
-    owner: `sherblot`,
+    owner: `sherblot`
   },
   jolie: {
     title: `Jolie`,
     require: `clike`,
-    owner: `thesave`,
+    owner: `thesave`
   },
   json: {
     title: `JSON`,
-    owner: `CupOfTea696`,
+    owner: `CupOfTea696`
   },
   julia: {
     title: `Julia`,
-    owner: `cdagnino`,
+    owner: `cdagnino`
   },
   keyman: {
     title: `Keyman`,
-    owner: `mcdurdin`,
+    owner: `mcdurdin`
   },
   kotlin: {
     title: `Kotlin`,
     require: `clike`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   latex: {
     title: `LaTeX`,
-    owner: `japborst`,
+    owner: `japborst`
   },
   less: {
     title: `Less`,
     require: `css`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   livescript: {
     title: `LiveScript`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   lolcode: {
     title: `LOLCODE`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   lua: {
     title: `Lua`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   makefile: {
     title: `Makefile`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   markdown: {
     title: `Markdown`,
     require: `markup`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   matlab: {
     title: `MATLAB`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   mel: {
     title: `MEL`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   mizar: {
     title: `Mizar`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   monkey: {
     title: `Monkey`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   nasm: {
     title: `NASM`,
-    owner: `rbmj`,
+    owner: `rbmj`
   },
   nginx: {
     title: `nginx`,
     owner: `westonganger`,
-    require: `clike`,
+    require: `clike`
   },
   nim: {
     title: `Nim`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   nix: {
     title: `Nix`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   nsis: {
     title: `NSIS`,
-    owner: `idleberg`,
+    owner: `idleberg`
   },
   objectivec: {
     title: `Objective-C`,
     require: `c`,
-    owner: `uranusjr`,
+    owner: `uranusjr`
   },
   ocaml: {
     title: `OCaml`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   oz: {
     title: `Oz`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   parigp: {
     title: `PARI/GP`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   parser: {
     title: `Parser`,
     require: `markup`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   pascal: {
     title: `Pascal`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   perl: {
     title: `Perl`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   php: {
     title: `PHP`,
     require: `clike`,
-    owner: `milesj`,
+    owner: `milesj`
   },
-  "php-extras": {
+  'php-extras': {
     title: `PHP Extras`,
     require: `php`,
-    owner: `milesj`,
+    owner: `milesj`
   },
   powershell: {
     title: `PowerShell`,
-    owner: `nauzilus`,
+    owner: `nauzilus`
   },
   processing: {
     title: `Processing`,
     require: `clike`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   prolog: {
     title: `Prolog`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   properties: {
     title: `.properties`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   protobuf: {
     title: `Protocol Buffers`,
     require: `clike`,
-    owner: `just-boris`,
+    owner: `just-boris`
   },
   puppet: {
     title: `Puppet`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   pure: {
     title: `Pure`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   python: {
     title: `Python`,
-    owner: `multipetros`,
+    owner: `multipetros`
   },
   q: {
     title: `Q`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   qore: {
     title: `Qore`,
     require: `clike`,
-    owner: `temnroegg`,
+    owner: `temnroegg`
   },
   r: {
     title: `R`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   jsx: {
     title: `React JSX`,
     require: [`markup`, `javascript`],
-    owner: `vkbansal`,
+    owner: `vkbansal`
   },
   reason: {
     title: `Reason`,
     require: `clike`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   rest: {
     title: `reST (reStructuredText)`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   rip: {
     title: `Rip`,
-    owner: `ravinggenius`,
+    owner: `ravinggenius`
   },
   roboconf: {
     title: `Roboconf`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   ruby: {
     title: `Ruby`,
     require: `clike`,
-    owner: `samflores`,
+    owner: `samflores`
   },
   rust: {
     title: `Rust`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   sas: {
     title: `SAS`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   sass: {
     title: `Sass (Sass)`,
     require: `css`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   scss: {
     title: `Sass (Scss)`,
     require: `css`,
-    owner: `MoOx`,
+    owner: `MoOx`
   },
   scala: {
     title: `Scala`,
     require: `java`,
-    owner: `jozic`,
+    owner: `jozic`
   },
   scheme: {
     title: `Scheme`,
-    owner: `bacchus123`,
+    owner: `bacchus123`
   },
   smalltalk: {
     title: `Smalltalk`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   smarty: {
     title: `Smarty`,
     require: `markup`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   sql: {
     title: `SQL`,
-    owner: `multipetros`,
+    owner: `multipetros`
   },
   stylus: {
     title: `Stylus`,
-    owner: `vkbansal`,
+    owner: `vkbansal`
   },
   swift: {
     title: `Swift`,
     require: `clike`,
-    owner: `chrischares`,
+    owner: `chrischares`
   },
   tcl: {
     title: `Tcl`,
-    owner: `PeterChaplin`,
+    owner: `PeterChaplin`
   },
   textile: {
     title: `Textile`,
     require: `markup`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   twig: {
     title: `Twig`,
     require: `markup`,
-    owner: `brandonkelly`,
+    owner: `brandonkelly`
   },
   typescript: {
     title: `TypeScript`,
     require: `javascript`,
-    owner: `vkbansal`,
+    owner: `vkbansal`
   },
   verilog: {
     title: `Verilog`,
-    owner: `a-rey`,
+    owner: `a-rey`
   },
   vhdl: {
     title: `VHDL`,
-    owner: `a-rey`,
+    owner: `a-rey`
   },
   vim: {
     title: `vim`,
-    owner: `westonganger`,
+    owner: `westonganger`
   },
   wiki: {
     title: `Wiki markup`,
     require: `markup`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   xojo: {
     title: `Xojo (REALbasic)`,
-    owner: `Golmote`,
+    owner: `Golmote`
   },
   yaml: {
     title: `YAML`,
-    owner: `hason`,
-  },
+    owner: `hason`
+  }
 }

@@ -1,43 +1,61 @@
 const Prism = require(`prismjs`)
-const _ = require(`lodash`)
+const R = require('ramda')
 
 const loadPrismLanguage = require(`./load-prism-language`)
 
-module.exports = (language, code, lineNumbersHighlight = []) => {
-  // (Try to) load languages on demand.
+const reduceWithIndex = R.addIndex(R.reduce)
+
+const highlightSyntax = (language, code) => {
   if (!Prism.languages[language]) {
     try {
       loadPrismLanguage(language)
     } catch (e) {
-      // Language wasn't loaded so let's bail.
       return code
     }
   }
 
-  const lang = Prism.languages[language]
+  return Prism.highlight(code, Prism.languages[language])
+}
 
-  let highlightedCode = Prism.highlight(code, lang)
-  if (lineNumbersHighlight) {
-    const codeSplits = highlightedCode.split(`\n`).map((split, i) => {
-      if (_.includes(lineNumbersHighlight, i + 1)) {
-        return {
-          highlighted: true,
-          code: `<span class="gatsby-highlight-code-line">${split}\n</span>`,
-        }
-      } else {
-        return { code: split }
-      }
-    })
+const processLine = (line, spotlighted, { path, title } = {}, numbered) => {
+  const titleAttr = title ? ` title="${title}"` : ''
 
-    highlightedCode = ``
-    // Don't add a new line character after highlighted lines as they
-    // need to be display: block and full-width.
-    codeSplits.forEach(split => {
-      split.highlighted
-        ? (highlightedCode += split.code)
-        : (highlightedCode += `${split.code}\n`)
-    })
+  if (numbered && spotlighted && path) {
+    return `<a href="${path}"${titleAttr} class="gatsby-highlight-code-line gatsby-linked-code-line gatsby-numbered-code-line">${line}\n</a>`
+  } else if (numbered && spotlighted) {
+    return `<span class="gatsby-highlight-code-line gatsby-numbered-code-line">${line}\n</span>`
+  } else if (numbered && path) {
+    return `<a href="${path}"${titleAttr} class="gatsby-numbered-code-line gatsby-linked-code-line">${line}\n</a>`
+  } else if (spotlighted && path) {
+    return `<a href="${path}"${titleAttr} class="gatsby-highlight-code-line gatsby-linked-code-line">${line}\n</a>`
+  } else if (numbered) {
+    return `<span gatsby-numbered-code-line">${line}\n</span>`
+  } else if (spotlighted) {
+    return `<span class="gatsby-highlight-code-line">${line}\n</span>`
+  } else if (path) {
+    return `<a href="${path}"${titleAttr} class="gatsby-linked-code-line">${line}\n</a>`
+  } else {
+    return `${line}\n`
   }
+}
 
-  return highlightedCode
+module.exports = (
+  language,
+  code,
+  linesToSpotlight = [],
+  links = [],
+  numbered
+) => {
+  const highlightedCode = highlightSyntax(language, code)
+
+  return reduceWithIndex(
+    (acc, line, idx) => {
+      const spotlighted = R.contains(idx + 1, linesToSpotlight)
+      const linked = links[idx + 1]
+
+      return `${acc}${processLine(line, spotlighted, linked, numbered)}`
+    },
+    ``,
+    R.split('\n', highlightedCode)
+  )
 }

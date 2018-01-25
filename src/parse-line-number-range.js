@@ -1,17 +1,23 @@
+const R = require('ramda')
 const rangeParser = require(`parse-numeric-range`)
+
+const splitLength = R.pipe(R.split(`{`), R.length)
 
 module.exports = language => {
   if (!language) {
     return ``
   }
-  if (language.split(`{`).length > 1) {
-    let [splitLanguage, rangeStr] = language.split(`{`)
-    rangeStr = rangeStr.slice(0, -1)
+
+  const [lang, rangeStr] = R.split(`{`, language)
+
+  if (rangeStr) {
+    const range = R.slice(0, -1, rangeStr)
+
     return {
-      splitLanguage,
-      highlightLines: rangeParser.parse(rangeStr).filter(n => n > 0),
+      language: R.trim(lang),
+      linesToSpotlight: R.filter(n => n > 0, rangeParser.parse(range))
     }
   }
 
-  return { splitLanguage: language }
+  return { language }
 }
