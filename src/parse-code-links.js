@@ -1,6 +1,6 @@
 const R = require('ramda')
 
-const linkTest = /[ ]*\{\{[^|]+\}\}[ ]*/g
+const linkTest = /[ ]*\{\{[^}]+\}\}[ ]*/g
 const linkExtractor = /^[ ]*\{\{([^|]+)\|([^|]+)(\|([^|]+))?\}\}[ ]*$/
 
 module.exports = language => {

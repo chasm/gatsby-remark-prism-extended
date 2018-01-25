@@ -2,7 +2,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 const R = require('ramda');
 
-const linkTest = /[ ]*\{\{[^|]+\}\}[ ]*/g;
+const linkTest = /[ ]*\{\{[^}]+\}\}[ ]*/g;
 const linkExtractor = /^[ ]*\{\{([^|]+)\|([^|]+)(\|([^|]+))?\}\}[ ]*$/;
 
 module.exports = language => {
