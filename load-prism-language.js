@@ -1,19 +1,33 @@
-const Prism = require(`prismjs`);
+'use strict';
 
-const languageDependencies = require(`./prism-language-dependencies`);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = loadPrismLanguage;
 
-module.exports = function loadPrismLanguage(language) {
-  if (Prism.languages[language]) {
+var _prismjs = require('prismjs');
+
+var _prismjs2 = _interopRequireDefault(_prismjs);
+
+var _prismLanguageDependencies = require('./prism-language-dependencies');
+
+var _prismLanguageDependencies2 = _interopRequireDefault(_prismLanguageDependencies);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function loadPrismLanguage(language) {
+  if (_prismjs2.default.languages[language]) {
     // Don't load already loaded language
     return;
   }
 
-  const languageData = languageDependencies[language];
+  var languageData = _prismLanguageDependencies2.default[language];
+
   if (!languageData) {
-    throw new Error(`Prism doesn't support language '${language}'.`);
+    throw new Error('Prism doesn\'t support language \'' + language + '\'.');
   }
 
-  if (languageData.option === `default`) {
+  if (languageData.option === 'default') {
     // Default language has already been loaded by Prism
     return;
   }
@@ -27,5 +41,5 @@ module.exports = function loadPrismLanguage(language) {
     }
   }
 
-  require(`prismjs/components/prism-${language}.js`);
-};
+  require('prismjs/components/prism-' + language + '.js');
+}

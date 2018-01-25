@@ -1,5 +1,5 @@
 // From "https://raw.githubusercontent.com/PrismJS/prism/v1.6.0/components.js"
-module.exports = {
+export default {
   meta: {
     path: `components/prism-{id}`,
     noCSS: true,

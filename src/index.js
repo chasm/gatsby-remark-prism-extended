@@ -1,26 +1,24 @@
-const R = require('ramda')
-const visit = require(`unist-util-visit`)
+import visit from 'unist-util-visit'
+import { toLower } from 'ramda'
 
-const parseCodeLinks = require('./parse-code-links')
-const parseLineNumberRange = require(`./parse-line-number-range`)
-const highlightCode = require(`./highlight-code`)
+import parseCodeLinks from './parse-code-links'
+import parseLineNumberRange from './parse-line-number-range'
+import highlightCode from './highlight-code'
 
-module.exports = (
+export default function (
   { markdownAST },
-  { classPrefix = `language-`, directory, showLineNumbers } = {}
-) => {
-  visit(markdownAST, `code`, node => {
-    const { language: delinkedLanguage, links } = parseCodeLinks(node.lang)
-    const {
-      language: derangedLanguage,
-      linesToSpotlight
-    } = parseLineNumberRange(delinkedLanguage)
-    const language = derangedLanguage ? R.toLower(derangedLanguage) : `none`
+  { classPrefix = 'language-', pathPrefix = '', showLineNumbers } = {}
+) {
+  visit(markdownAST, 'code', node => {
+    const { language: unlinked, links } = parseCodeLinks(node.lang, pathPrefix)
+    const { language: unranged, spotlighted } = parseLineNumberRange(unlinked)
+    const language = unranged ? toLower(unranged) : 'none'
     const className = `${classPrefix}${language}`
 
-    node.type = `html`
+    node.type = 'html'
     node.value = `<div class="gatsby-highlight">
-    <pre class="${className}"><code>${highlightCode(language, node.value, linesToSpotlight, links, showLineNumbers)}</code></pre>
-    </div>`
+    <pre class="${className}"><code>${highlightCode(language, node.value, spotlighted, links, showLineNumbers)}</code></pre>
+    </div>
+    `
   })
 }

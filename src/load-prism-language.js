@@ -1,14 +1,15 @@
-const Prism = require(`prismjs`)
+import Prism from 'prismjs'
 
-const languageDependencies = require(`./prism-language-dependencies`)
+import languageDependencies from './prism-language-dependencies'
 
-module.exports = function loadPrismLanguage (language) {
+export default function loadPrismLanguage (language) {
   if (Prism.languages[language]) {
     // Don't load already loaded language
     return
   }
 
   const languageData = languageDependencies[language]
+
   if (!languageData) {
     throw new Error(`Prism doesn't support language '${language}'.`)
   }

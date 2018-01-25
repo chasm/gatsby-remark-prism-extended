@@ -1,37 +1,38 @@
-const R = require('ramda')
+import { match, reduce, replace, test, trim } from 'ramda'
 
 const linkTest = /[ ]*\{\{[^}]+\}\}[ ]*/g
 const linkExtractor = /^[ ]*\{\{([^|]+)\|([^|]+)(\|([^|]+))?\}\}[ ]*$/
+const httpTest = /^https?:\/\//
 
-module.exports = language => {
+export default function (language, pathPrefix) {
   if (!language) {
     return ``
   }
 
-  if (R.test(linkTest, language)) {
-    const matches = R.match(linkTest, language)
-    const links = R.reduce(
-      (acc, link) => {
-        const [, num, path, , title] = R.match(linkExtractor, link)
-        const line = parseInt(num, 10)
-
-        return {
-          ...acc,
-          [line]: {
-            path,
-            title
-          }
-        }
-      },
-      {},
-      matches
-    )
+  if (test(linkTest, language)) {
+    const matches = match(linkTest, language)
 
     return {
-      language: R.trim(R.replace(linkTest, '', language)),
-      links
+      language: trim(replace(linkTest, '', language)),
+      links: reduce(
+        (acc, link) => {
+          const [, num, path, , title] = match(linkExtractor, link)
+          const line = parseInt(num, 10)
+          const url = test(httpTest, path) ? path : `${pathPrefix}${path}`
+
+          return {
+            ...acc,
+            [line]: {
+              url,
+              title
+            }
+          }
+        },
+        {},
+        matches
+      )
     }
   }
 
-  return { language: R.trim(language) }
+  return { language: trim(language) }
 }
