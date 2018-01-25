@@ -29,7 +29,7 @@ const processLine = (line, spotlighted, { path, title } = {}, numbered) => {
   } else if (spotlighted && path) {
     return `<a href="${path}"${titleAttr} class="gatsby-highlight-code-line gatsby-linked-code-line">${line}\n</a>`;
   } else if (numbered) {
-    return `<span gatsby-numbered-code-line">${line}\n</span>`;
+    return `<span class="gatsby-numbered-code-line">${line}\n</span>`;
   } else if (spotlighted) {
     return `<span class="gatsby-highlight-code-line">${line}\n</span>`;
   } else if (path) {
