@@ -1,4 +1,4 @@
-import Prism from 'prismjs'
+import Prism from 'prismjs/components/prism-core'
 
 import languageDependencies from './prism-language-dependencies'
 
