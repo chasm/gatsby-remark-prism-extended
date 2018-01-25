@@ -5,7 +5,7 @@ import parseCodeLinks from './parse-code-links'
 import parseLineNumberRange from './parse-line-number-range'
 import highlightCode from './highlight-code'
 
-export default function (
+module.exports = function (
   { markdownAST },
   { classPrefix = 'language-', pathPrefix = '', showLineNumbers } = {}
 ) {
