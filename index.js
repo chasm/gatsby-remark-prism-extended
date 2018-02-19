@@ -20,15 +20,19 @@ var _highlightCode2 = _interopRequireDefault(_highlightCode);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-module.exports = function (_ref) {
-  var markdownAST = _ref.markdownAST;
+module.exports = function (arg) {
+  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+      addTrail = _ref.addTrail,
+      _ref$classPrefix = _ref.classPrefix,
+      classPrefix = _ref$classPrefix === undefined ? 'language-' : _ref$classPrefix,
+      _ref$pathPrefix = _ref.pathPrefix,
+      pathPrefix = _ref$pathPrefix === undefined ? '' : _ref$pathPrefix,
+      showLineNumbers = _ref.showLineNumbers;
 
-  var _ref2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-      _ref2$classPrefix = _ref2.classPrefix,
-      classPrefix = _ref2$classPrefix === undefined ? 'language-' : _ref2$classPrefix,
-      _ref2$pathPrefix = _ref2.pathPrefix,
-      pathPrefix = _ref2$pathPrefix === undefined ? '' : _ref2$pathPrefix,
-      showLineNumbers = _ref2.showLineNumbers;
+  var markdownAST = arg.markdownAST;
+
+
+  console.log('arg', arg);
 
   (0, _unistUtilVisit2.default)(markdownAST, 'code', function (node) {
     var _parseCodeLinks = (0, _parseCodeLinks3.default)(node.lang, pathPrefix),
@@ -41,8 +45,9 @@ module.exports = function (_ref) {
 
     var language = unranged ? (0, _ramda.toLower)(unranged) : 'none';
     var className = '' + classPrefix + language;
+    var output = (0, _highlightCode2.default)(language, node.value, spotlighted, links, showLineNumbers);
 
     node.type = 'html';
-    node.value = '<div class="gatsby-highlight">\n    <pre class="' + className + '"><code>' + (0, _highlightCode2.default)(language, node.value, spotlighted, links, showLineNumbers) + '</code></pre>\n    </div>\n    ';
+    node.value = '<div class="gatsby-highlight">\n    <pre class="' + className + '"><code>' + output + '</code></pre>\n    </div>\n    ';
   });
 };
