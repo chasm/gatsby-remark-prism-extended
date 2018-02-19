@@ -6,9 +6,13 @@ import parseLineNumberRange from './parse-line-number-range'
 import highlightCode from './highlight-code'
 
 module.exports = function (
-  { markdownAST, relativeDirectory },
+  input,
   { addTrail, classPrefix = 'language-', pathPrefix = '', showLineNumbers } = {}
 ) {
+  const { markdownAST, relativeDirectory } = input
+
+  console.log('addTrail', addTrail)
+  console.log('input', input)
   const trail = addTrail ? `/${relativeDirectory}/` : undefined
 
   visit(markdownAST, 'code', node => {
