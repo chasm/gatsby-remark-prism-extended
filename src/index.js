@@ -6,14 +6,10 @@ import parseLineNumberRange from './parse-line-number-range'
 import highlightCode from './highlight-code'
 
 module.exports = function (
-  input,
+  { markdownAST, markdownNode: { fields: { slug } = {} } = {} },
   { addTrail, classPrefix = 'language-', pathPrefix = '', showLineNumbers } = {}
 ) {
-  const { markdownAST, relativeDirectory } = input
-
-  console.log('addTrail', addTrail)
-  console.log('input', input)
-  const trail = addTrail ? `/${relativeDirectory}/` : undefined
+  const trail = addTrail ? slug : undefined
 
   visit(markdownAST, 'code', node => {
     const { language: unlinked, links } = parseCodeLinks(
