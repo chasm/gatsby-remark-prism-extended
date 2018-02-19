@@ -20,22 +20,22 @@ var _highlightCode2 = _interopRequireDefault(_highlightCode);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-module.exports = function (arg) {
-  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-      addTrail = _ref.addTrail,
-      _ref$classPrefix = _ref.classPrefix,
-      classPrefix = _ref$classPrefix === undefined ? 'language-' : _ref$classPrefix,
-      _ref$pathPrefix = _ref.pathPrefix,
-      pathPrefix = _ref$pathPrefix === undefined ? '' : _ref$pathPrefix,
-      showLineNumbers = _ref.showLineNumbers;
+module.exports = function (_ref) {
+  var markdownAST = _ref.markdownAST,
+      relativeDirectory = _ref.relativeDirectory;
 
-  var markdownAST = arg.markdownAST;
+  var _ref2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+      addTrail = _ref2.addTrail,
+      _ref2$classPrefix = _ref2.classPrefix,
+      classPrefix = _ref2$classPrefix === undefined ? 'language-' : _ref2$classPrefix,
+      _ref2$pathPrefix = _ref2.pathPrefix,
+      pathPrefix = _ref2$pathPrefix === undefined ? '' : _ref2$pathPrefix,
+      showLineNumbers = _ref2.showLineNumbers;
 
-
-  console.log('arg', arg);
+  var trail = addTrail ? '/' + relativeDirectory + '/' : undefined;
 
   (0, _unistUtilVisit2.default)(markdownAST, 'code', function (node) {
-    var _parseCodeLinks = (0, _parseCodeLinks3.default)(node.lang, pathPrefix),
+    var _parseCodeLinks = (0, _parseCodeLinks3.default)(node.lang, pathPrefix, trail),
         unlinked = _parseCodeLinks.language,
         links = _parseCodeLinks.links;
 

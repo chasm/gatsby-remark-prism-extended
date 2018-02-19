@@ -4,7 +4,7 @@ const linkTest = /[ ]*\{\{[^}]+\}\}[ ]*/g
 const linkExtractor = /^[ ]*\{\{([^|]+)\|([^|]+)(\|([^|]+))?\}\}[ ]*$/
 const httpTest = /^https?:\/\//
 
-export default function (language, pathPrefix) {
+export default function (language, pathPrefix, trail) {
   if (!language) {
     return ``
   }
@@ -18,7 +18,8 @@ export default function (language, pathPrefix) {
         (acc, link) => {
           const [, num, path, , title] = match(linkExtractor, link)
           const line = parseInt(num, 10)
-          const url = test(httpTest, path) ? path : `${pathPrefix}${path}`
+          const baseUrl = test(httpTest, path) ? path : `${pathPrefix}${path}`
+          const url = trail ? `${baseUrl}?trail=${trail}` : baseUrl
 
           return {
             ...acc,
