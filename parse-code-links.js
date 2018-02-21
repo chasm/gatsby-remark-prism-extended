@@ -26,8 +26,9 @@ exports.default = function (language, pathPrefix, trail) {
             title = _match2[4];
 
         var line = parseInt(num, 10);
-        var baseUrl = (0, _ramda.test)(httpTest, path) ? path : '' + pathPrefix + path;
-        var url = trail ? baseUrl + '?trail=' + trail : baseUrl;
+        var isRemote = (0, _ramda.test)(httpTest, path);
+        var baseUrl = isRemote ? path : '' + pathPrefix + path;
+        var url = !isRemote && trail ? baseUrl + '?trail=' + trail : baseUrl;
 
         return _extends({}, acc, _defineProperty({}, line, {
           url: url,
