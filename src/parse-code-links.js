@@ -18,8 +18,9 @@ export default function (language, pathPrefix, trail) {
         (acc, link) => {
           const [, num, path, , title] = match(linkExtractor, link)
           const line = parseInt(num, 10)
-          const baseUrl = test(httpTest, path) ? path : `${pathPrefix}${path}`
-          const url = trail ? `${baseUrl}?trail=${trail}` : baseUrl
+          const isLocal = test(httpTest, path)
+          const baseUrl = isLocal ? path : `${pathPrefix}${path}`
+          const url = isLocal && trail ? `${baseUrl}?trail=${trail}` : baseUrl
 
           return {
             ...acc,
