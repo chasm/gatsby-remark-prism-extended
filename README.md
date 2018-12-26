@@ -1,5 +1,7 @@
 # gatsby-remark-prismjs
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/chasm/gatsby-remark-prismjs.svg)](https://greenkeeper.io/)
+
 Adds syntax highlighting to code blocks in markdown files using
 [PrismJS](http://prismjs.com/).
 
